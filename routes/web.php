@@ -14,11 +14,4 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/admin',function(){
-    return view("admin");
-});
 Route::get('test','TestController@index');
-Route::get('qrcode','TestController@qrcode');
-Route::get('testpdf','TestController@testpdf');
-Route::get('transaction','TestController@transaction');
-Route::get('excel','TestController@excel');

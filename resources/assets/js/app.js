@@ -17,22 +17,6 @@ window.Vue = require('vue');
 
 Vue.component('example', require('./components/Example.vue'));
 
-import App from './App.vue'
-import VueRouter from 'vue-router'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-default/index.css'
-
-Vue.use(VueRouter)
-Vue.use(ElementUI)
-const router = new VueRouter({
-routes: [
-	{ path: '/', component: require('./components/Example.vue') }
-]
-})
-
 const app = new Vue({
-    el: '#app',
-    router,
-	template: '<App/>',
-	components: { App }
+    el: '#app'
 });
