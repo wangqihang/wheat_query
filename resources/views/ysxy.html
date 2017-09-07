@@ -1,0 +1,26 @@
+<#list list_news as news>
+<div class="art-list">
+    <div class="art-time">
+    ${news.showDate}
+    </div>
+    <div class="art">
+        <div class="art-title">${news.showTitle}</div>
+        <p>${news.showAbstract}</p>
+        <span class="art-more"><a href="${news.url}" target=_blank title="${news.tipsTitle}">了解更多 &gt;</a></span>
+    </div>
+</div>
+</#list>
+<div class="fpage">${pageBar}</div>
+--------------------------------------------------------------------
+<div>
+    <UL>
+    <#list list_news as news>
+        <li id="${news.lineID}" style="${news.lineShowStyle}"><a href="${news.columnUrl}">[${news.showColumnName}]</a>
+            <a href="${news.url}" target=_blank title="${news.tipsTitle}" style="${news.cssTitleColor}">${news.showTitle}</a>
+            &nbsp;${news.showDate}&nbsp;点击：[${news.showClickTimes}] 次<#if news.isNew>&nbsp;new</#if></li>
+        <#--列表分段用的分隔符，可在配置栏分段相关配置中设置分段条数-->
+        <span id="${news.sectionID}" style="${news.sectionShowStyle}"><hr style="height:1px;border:none;border-top:1px dashed #CCCCCC;"></span>
+    </#list>
+    </UL>
+    <div align=center>${pageBar}</div><#--分页表头-->
+</div>
