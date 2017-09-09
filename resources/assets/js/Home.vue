@@ -1,7 +1,6 @@
 <template>
     <div>
-        this is index.vue!<br>
-        <span v-for="item in items">{{ item.id+"<=>"+item.name }}<br></span>
+        this is vue component!<br>
         <div>
             <el-form ref="form" :model="form" label-width="80px">
                 <el-form-item label="活动名称">
@@ -57,19 +56,6 @@
     export default {
         data(){
             return {
-                items: [{
-                    id:0,
-                    name:'zhangsan',
-                },{
-                    id:1,
-                    name:'lisi',
-                },{
-                    id:2,
-                    name:'wangwu',
-                },{
-                    id:3,
-                    name:'zhaoliu',
-                }],
                 form: {
                     name: '',
                     region: '',
