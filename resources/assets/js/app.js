@@ -7,7 +7,63 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+import App from "./Admin.vue"
+import router from './router'
+import ElementUI from "element-ui"
+import { filters } from './filter'
+
+Object.keys(filters).forEach(key => {
+    Vue.filter(key, filters[key])
+})
+
+require("es6-promise").polyfill()
+
+Vue.use(ElementUI);
+
+Vue.prototype.send_request = function (meth,url,callback,data=null) {
+    var self = this;
+    axios({
+        'method':meth,
+        'url':url,
+        'data':data
+    }).then(function (response) {
+        callback(response,self);
+    })
+}
+
+Vue.component('remote-script', {
+
+    render: function (createElement) {
+        var self = this;
+        return createElement('script', {
+            attrs: {
+                type: 'text/javascript',
+                src: this.src
+            },
+            on: {
+                load: function (event) {
+                    self.$emit('load', event);
+                },
+                error: function (event) {
+                    self.$emit('error', event);
+                },
+                readystatechange: function (event) {
+                    if (this.readyState == 'complete') {
+                        self.$emit('load', event);
+                    }
+                }
+            }
+        });
+    },
+
+    props: {
+        src: {
+            type: String,
+            required: true
+        }
+    }
+});
+/*window.Vue = require('vue');*/
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,8 +71,10 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+/*Vue.component('example', require('./components/Example.vue'));*/
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    render: h => h(App),
+    router
 });
