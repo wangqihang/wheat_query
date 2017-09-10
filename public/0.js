@@ -86,6 +86,8 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_element_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_element_ui__);
 //
 //
 //
@@ -140,6 +142,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -163,9 +166,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             console.log('submit!');
         }
     },
-    mounted: function mounted() {
-        console.log(this.data);
-    }
+    mounted: function mounted() {}
 });
 
 /***/ }),
@@ -174,7 +175,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._v("\n    this is vue component!"), _c('br'), _vm._v(" "), _c('div', [_c('el-form', {
+  return _c('div', [_vm._v("\n    this is vue component!"), _c('br'), _vm._v(" "), _c('div', {
+    attrs: {
+      "id": "test"
+    }
+  }, [_c('el-form', {
     ref: "form",
     attrs: {
       "model": _vm.form,

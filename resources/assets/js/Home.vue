@@ -1,7 +1,7 @@
 <template>
     <div>
         this is vue component!<br>
-        <div>
+        <div id="test">
             <el-form ref="form" :model="form" label-width="80px">
                 <el-form-item label="活动名称">
                     <el-input v-model="form.name"></el-input>
@@ -53,6 +53,7 @@
 
 </style>
 <script type="text/ecmascript-6">
+    import { Loading } from 'element-ui'
     export default {
         data(){
             return {
@@ -64,7 +65,7 @@
                     delivery: false,
                     type: [],
                     resource: '',
-                    desc: ''
+                    desc: '',
                 }
             }
         },
@@ -72,10 +73,10 @@
         methods: {
             onSubmit() {
                 console.log('submit!');
-            }
+            },
         },
         mounted() {
-            console.log(this.data)
+
         },
     }
 </script>
